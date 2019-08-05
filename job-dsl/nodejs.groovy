@@ -13,7 +13,8 @@ job('NodeJS example') {
                          // Manage Jenkins -> Configure Tools -> NodeJS Installations -> Name
     }
     steps {
-        shell("sudo npm install && npm start")
+        shell("sudo npm install")
+        shell("sudo  npm start")
  
     }
 }
