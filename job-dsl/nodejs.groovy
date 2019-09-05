@@ -2,8 +2,14 @@ job('Jenkins_DSL_Example') {
     scm {
         git('https://github.com/Pra9jha/jenkins_with_node.git') {  node -> // is hudson.plugins.git.GitSCM   
             node / gitConfigName('DSL User')
-            branch(master)
         }
+        
+        branches {
+            branchSpec {
+               name(master)
+            }
+        }
+        
     }
     triggers {
         githubPush()
