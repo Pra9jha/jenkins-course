@@ -6,7 +6,7 @@ job('NodeJS example') {
         }
     }
     triggers {
-        scm('H/5 * * * *')
+        scm('* * * * *')
     }
     steps {
         
