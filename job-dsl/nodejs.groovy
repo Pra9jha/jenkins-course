@@ -1,4 +1,4 @@
-job('Jenkins_DSL_Example') {
+job('Jenkins_DSL_Example01') {
     scm {
         git('https://github.com/Pra9jha/jenkins_with_node.git') {  node -> // is hudson.plugins.git.GitSCM   
             node / gitConfigName('DSL User')
@@ -8,9 +8,34 @@ job('Jenkins_DSL_Example') {
                name("master")
             }
         }  
+                 
+        }   
+    }
+    triggers {
+        githubPush()
+    }
+    steps {
+        
+        shell("sudo apt install npm -y &&  sudo apt-get install nodejs -y &&  sudo  npm install express -y && sudo npm install")
+        shell("sudo  npm start")
+ 
+    }
+}
+
+
+
+
+job('Jenkins_DSL_Example02') {
+    scm {
+        git('https://github.com/Pra9jha/jenkins_with_node.git') {  node -> // is hudson.plugins.git.GitSCM   
+            node / gitConfigName('DSL User')
             
-            
-            
+           branches {
+            branchSpec {
+               name("master")
+            }
+        }  
+                 
         }   
     }
     triggers {
