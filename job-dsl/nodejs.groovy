@@ -5,7 +5,7 @@ job('Jenkins_DSL_Example') {
         }
     }
     triggers {
-         scm('H/5 * * * *')
+         github()
     }
     steps {
         
