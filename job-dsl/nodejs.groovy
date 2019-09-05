@@ -5,7 +5,7 @@ job('Jenkins_DSL_Example') {
             
            branches {
             branchSpec {
-               name(master)
+               name("master")
             }
         }  
             
