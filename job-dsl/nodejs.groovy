@@ -5,7 +5,7 @@ job('Jenkins_DSL_Example') {
         }
     }
     triggers {
-         github()
+        githubPush()
     }
     steps {
         
