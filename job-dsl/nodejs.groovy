@@ -1,4 +1,4 @@
-job('Jenkins_DSL_Example01') {
+job('Jenkins_DSL_Example01') : slave1  {
     scm {
         git('https://github.com/Pra9jha/jenkins_with_node.git') {  node -> // is hudson.plugins.git.GitSCM   
             node / gitConfigName('DSL User')
@@ -21,31 +21,3 @@ job('Jenkins_DSL_Example01') {
  
     }
 }
-
-
-
-
-job('Jenkins_DSL_Example02') {
-    scm {
-        git('https://github.com/Pra9jha/jenkins_with_node.git') {  node -> // is hudson.plugins.git.GitSCM   
-            node / gitConfigName('DSL User')
-            
-           branches {
-            branchSpec {
-               name("master")
-            }
-        }  
-                 
-        }   
-    }
-    triggers {
-        githubPush()
-    }
-    steps {
-        
-        shell("sudo apt install npm -y &&  sudo apt-get install nodejs -y &&  sudo  npm install express -y && sudo npm install")
-        shell("sudo  npm start")
- 
-    }
-}
-
